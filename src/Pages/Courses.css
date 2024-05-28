@@ -1,0 +1,16 @@
+
+/* Courses.css */
+
+.courses-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the cards horizontally */
+}
+
+.course-heading {
+    width: 100%;
+    text-align: center;
+    font-size: 44px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
