@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './NewStudentItem.css'
 
 const NewStudentItem = ({ student }) => {
   const [enrolled, setEnrolled] = useState(false);
@@ -28,7 +29,7 @@ const NewStudentItem = ({ student }) => {
 
 
   return (
-    <div>
+    <div className='newStudents-main'>
       <div className="fields">
         <p>Name: {student.name}</p>
         <p>Email: {student.email}</p>

@@ -48,7 +48,6 @@ const StudentProfile = ({ profileData }) => {
 		<div className='student-p-main'>
 			<h1>Welcome, {profileData.name}</h1>
 			<p>Email: {profileData.email}</p>
-			<p> Date of Birth: {profileData.dob}</p>
 			<p>Address: {profileData.address}</p>
 
 			<h1>All Courses</h1>

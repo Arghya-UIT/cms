@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import './CourseDetails.css'
 
 function CourseDetails() {
     const { id } = useParams();
@@ -80,8 +81,8 @@ function CourseDetails() {
         <div>
             {/* Render fetched course details here */}
             {courseDetails && (
-                <div>
-                    <h2>{courseDetails.courseName}</h2>
+                <div className='course-details-main'> 
+                    <h2>Course Name: {courseDetails.courseName}</h2>
                     <h3>Teacher: {courseDetails.name}</h3>
                     <p>Qualification: {courseDetails.qualification}</p>
                     <p>Description: {courseDetails.courseDescription}</p>

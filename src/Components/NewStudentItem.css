@@ -1,0 +1,14 @@
+.newStudents-main {
+    padding: 10px;
+    background-color: antiquewhite;
+}
+
+.enroll-btn {
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px;
+    border: 1px black;
+}

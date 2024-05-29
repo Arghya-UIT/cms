@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './CheckAssignmenItem.css'
 
 const CheckAssignmentItem = ({ index, assignment }) => {
     const [tasks, setTasks] = useState(assignment.tasks);
@@ -34,7 +35,7 @@ const CheckAssignmentItem = ({ index, assignment }) => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ marks: task.marks})
+                body: JSON.stringify({ marks: task.marks })
             });
             if (response.ok) {
                 alert('Task updated successfully');
@@ -47,29 +48,39 @@ const CheckAssignmentItem = ({ index, assignment }) => {
     };
 
     return (
-        <div key={index}>
+        <div key={index} className='check-assignment'>
             <h3>Assignment Name: {assignment.assignment_name}</h3>
-            <p>Assignment File Name: {assignment.assignment_file_name}</p>
-            <p>Course ID: {assignment.course_id}</p>
+
             {tasks.map((task, taskIndex) => (
-                <div key={taskIndex}>
-                    <h4>Task {taskIndex + 1}</h4>
-                    <p>Submission ID: {task.submission_id}</p>
-                    <p>Student Name: {task.student_name}</p>
-                    <p>Student Email: {task.student_email}</p>
-                    <button onClick={() => downloadAssignment(task.file_name)}>Download</button>
-                    <p>
-                        Marks:
-                        <input
-                            type="number"
-                            value={task.marks !== undefined ? task.marks : ''}
-                            onChange={(e) => handleMarksChange(taskIndex, Number(e.target.value))}
-                        />
-                    </p>
-                    
-                    <button onClick={() => saveChanges(taskIndex, task.student_id)}>Save</button>
+
+                <div key={taskIndex} >
+                    {task.submission_id !== "" ? (
+                        <div className='assignment-item'>
+                            <p>Student Name: {task.student_name}</p>
+                            <p>Student Email: {task.student_email}</p>
+                            <p>Marks: {task.marks}</p>
+                            {!task.checked ? (
+                                <div>
+                                    <button onClick={() => downloadAssignment(task.file_name)}>Download</button>
+                                    <p>
+                                        Marks:
+                                        <input
+                                            type="number"
+                                            value={task.marks !== undefined ? task.marks : ''}
+                                            onChange={(e) => handleMarksChange(taskIndex, Number(e.target.value))}
+                                        />
+                                    </p>
+                                    <button onClick={() => saveChanges(taskIndex, task.student_id)}>Save</button>
+                                </div>
+                            ) : null}
+
+                        </div>
+                    ) : null}
+
+
                 </div>
             ))}
+
         </div>
     );
 };

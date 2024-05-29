@@ -1,0 +1,11 @@
+.teacher-main {
+    margin: 20px;
+}
+
+.no-new-student,
+.upload-assignment ,
+.no-assignment{
+    padding: 10px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+}

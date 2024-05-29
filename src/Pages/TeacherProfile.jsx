@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import NewStudentItem from '../Components/NewStudentItem';
 import CheckAssignmentItem from '../Components/CheckAssignmentItem';
+import './TeacherProfile.css'
 
 const TeacherProfile = ({ profileData }) => {
     const course_id = profileData.course_id;
@@ -117,16 +118,14 @@ const TeacherProfile = ({ profileData }) => {
 
 
     return (
-        <div>
+        <div className='teacher-main'>
             <h1>Welcome, {profileData.name}</h1>
             <p><strong>Email:</strong> {profileData.email}</p>
-            <p><strong>Date of Birth:</strong> {profileData.dob}</p>
             <p><strong>Address:</strong> {profileData.address}</p>
             <p><strong>Qualification:</strong> {profileData.qualification}</p>
             <p><strong>Course Name:</strong> {profileData.courseName}</p>
             <p><strong>Course Description:</strong> {profileData.courseDescription}</p>
             <p><strong>Course Price:</strong> {profileData.coursePrice}</p>
-            <p><strong>Demo Video URL:</strong> {profileData.demoVideoUrl}</p>
             <br />
             <h1>New Students</h1>
 
@@ -135,21 +134,23 @@ const TeacherProfile = ({ profileData }) => {
                     <NewStudentItem key={index} student={student} />
                 ))
             ) : (
-                <div>No new students found.</div>
+                <div className='no-new-student'>No new students found.</div>
             )}
 
             <h1>Upload Assignments</h1>
-            <input type="file" accept="application/pdf" onChange={handleFileChange} />
-            <button onClick={handleUpload}>Upload</button>
-            {uploadMessage && <p>{uploadMessage}</p>}
+            <div className="upload-assignment">
+                <input type="file" accept="application/pdf" onChange={handleFileChange} />
+                <button onClick={handleUpload}>Upload</button>
+                {uploadMessage && <p>{uploadMessage}</p>}
+            </div>
 
-            <h1>check asingments</h1>
+            <h1>Check Asingments</h1>
             {assignments.length > 0 ? (
                 assignments.map((assignment, index) => (
                     <CheckAssignmentItem key={index} assignment={assignment} />
                 ))
             ) : (
-                <div>No assignments found.</div>
+                <div className='no-assignment'> No assignments found.</div>
             )}
 
         </div>
