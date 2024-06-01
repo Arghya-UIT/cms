@@ -22,9 +22,9 @@ const Home = () => {
                 <div className="assignment">
                     submit assignments
                 </div>
-                <div className="session">
+                {/* <div className="session">
                     Engage in interactiive seassons
-                </div>
+                </div> */}
             </div>
         </div>
 

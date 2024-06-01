@@ -85,7 +85,7 @@ const Login = () => {
 	return (
 		<div className="main">
 			<div className="login-title">
-				Sign Up
+				Login
 			</div>
 
 			<form onSubmit={handleLogin} className='login-details'>
@@ -115,14 +115,14 @@ const Login = () => {
 						placeholder="Enter your password"
 					/>
 				</div>
-				<div className="forgot">
+				{/* <div className="forgot">
 					<Link to="/forgot-password">Forgot password?</Link>
-				</div>
+				</div> */}
 				<div className="new-user">
 					<Link to="/signup">New user? Sign up here</Link>
 				</div>
 
-				<button type="submit" className='sungup-submit'>Sign Up</button>
+				<button type="submit" className='sungup-submit'>Login</button>
 			</form>
 
 		</div>
